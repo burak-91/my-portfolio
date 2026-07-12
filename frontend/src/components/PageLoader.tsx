@@ -27,12 +27,6 @@ export const PageLoader = () => {
         <div className="size-16 rounded-full border-4 border-white/10 border-t-emerald-300 animate-spin" />
         <div className="absolute inset-0 rounded-full border-4 border-transparent border-b-sky-400/60 animate-spin [animation-duration:1.6s]" />
       </div>
-      <div className="text-center">
-        <div className="font-serif text-2xl bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
-          Burak Eröksüz
-        </div>
-        <div className="text-sm text-white/40 mt-1">Loading portfolio…</div>
-      </div>
     </div>
   );
 };
