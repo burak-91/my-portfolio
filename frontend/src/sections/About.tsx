@@ -13,7 +13,7 @@ const toolbox = [
   { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
   { label: "Backend", items: ["Java", "Spring Boot", "PostgreSQL", "REST APIs"] },
   { label: "Mobile", items: ["React Native", "Expo"] },
-  { label: "AI", items: ["OpenAI API", "Claude API", "AI-Assisted Development"] },
+  { label: "AI", items: ["LLM Integration", "Prompt Engineering", "Claude Code", "ChatGPT"] },
   { label: "Tools", items: ["Git & GitHub", "Docker", "Maven", "Vercel & Railway"] },
 ];
 
