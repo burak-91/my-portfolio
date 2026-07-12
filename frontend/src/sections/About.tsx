@@ -6,6 +6,13 @@ import mapImage from "@/assets/images/map2.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
 
+const stats = [
+  { value: "6+", label: "Years in software" },
+  { value: "20+", label: "Projects delivered" },
+  { value: "3", label: "Live APIs in production" },
+  { value: "7", label: "Products in portfolio" },
+];
+
 const toolbox = [
   { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
   { label: "Backend", items: ["Java", "Spring Boot", "PostgreSQL", "REST APIs"] },
@@ -25,6 +32,24 @@ export const AboutSection = () => {
         />
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
+          {/* By the Numbers */}
+          <Card className="md:col-span-2 lg:col-span-1 pb-6">
+            <CardHeader
+              title="By the Numbers"
+              description="A quick snapshot of the journey since 2020."
+            />
+            <div className="px-6 mt-5 grid grid-cols-2 gap-x-4 gap-y-6">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-serif text-3xl bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-white/50 mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
           {/* Toolbox */}
           <Card className="md:col-span-3 lg:col-span-2 pb-6">
             <CardHeader
@@ -52,8 +77,8 @@ export const AboutSection = () => {
             </div>
           </Card>
 
-          {/* Genişletilmiş harita */}
-          <Card className="md:col-span-2 lg:col-span-1 p-0 relative min-h-[320px]">
+          {/* Genişletilmiş harita — tam genişlik */}
+          <Card className="md:col-span-5 lg:col-span-3 p-0 relative h-[300px]">
             <Image
               src={mapImage}
               alt="Ankara map"
