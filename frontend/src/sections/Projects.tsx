@@ -62,13 +62,13 @@ export const ProjectsSection = () => {
                     </button>
                   </a>
                 </div>
-                <div className="relative">
+                <div className="relative mt-6 -mx-8 md:mx-0 md:mt-8 lg:mt-0">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={1400}
                     height={900}
-                    className="mt-8 -mb-4 md:-mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    className="w-full lg:absolute lg:h-full lg:w-auto lg:max-w-none"
                   />
                 </div>
               </div>
