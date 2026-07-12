@@ -2,6 +2,32 @@
 
 Öncelik sırasına göre. Bir maddeyi tamamlayınca buradan sil ya da tarihle işaretle.
 
+---
+
+## 📓 YAYIN GÜNLÜĞÜ — 2026-07-12 (lansman günü)
+
+**⏸️ MEVCUT DURUM: SİTE BAKIM MODUNDA.** Açmak için: Vercel `burak-portfolio` → Environment Variables → `NEXT_PUBLIC_MAINTENANCE` değişkenini SİL → prod'a yeniden deploy → `iamburak.dev` otomatik güncellenir (custom domain deploy'u takip eder), fakat `burak-91.vercel.app` ve `burak-eroksuz.vercel.app` alias'larını yeni deploy'a ELLE bağlamak gerekir (`vercel alias set <deploy-url> <alias>`).
+
+### Canlı altyapı
+- **Domain:** iamburak.dev (Hostinger, oto-yenileme açık, bitiş 2027-07-12). DNS: A @→76.76.21.21, CNAME www→cname.vercel-dns.com + Resend için TXT resend._domainkey (DKIM), TXT+MX send (SPF).
+- **Frontend'ler (Vercel, ücretsiz):** burak-portfolio (iamburak.dev), randevupro (randevupro-app.vercel.app), 4 demo (ember-and-oak-kitchen / pulse-product-analytics / atlas-store-admin / forma-homeware .vercel.app). Hepsinde Deployment Protection kapatıldı (API: ssoProtection:null).
+- **Backend'ler (Railway, deneme kredisi):** portfolio-api (…-e6d6.up.railway.app; cuzdan-api aynı projede 2. servis), randevupro-api. Kredi bitince: Hobby ~$5/ay VEYA Hetzner/Oracle VPS'e Docker taşıma (karar bekliyor).
+- **DB'ler (Neon, ücretsiz):** portfolio / randevupro / cuzdan (`ALTER DATABASE ... SET search_path=public` yapıldı — YENİ DB'DE UNUTMA).
+- **Mail:** Resend, domain DOĞRULANDI → gönderici `Burak Eroksuz <contact@iamburak.dev>` (RESEND_FROM env), alıcı burakeroksuz@gmail.com (CONTACT_RECIPIENT). Railway SMTP engellediği için HTTP API; SMTP sadece lokal fallback. NOT: contact@iamburak.dev mail ALAMAZ (inbox yok, sadece gönderici).
+
+### Bugün siteye eklenen/değişenler
+Hero metni (web+mobil+AI) · sekme başlığı "Burak | Full-Stack Developer" · özel favicon (gradyan B monogram, `app/icon.svg`) · tam sayfa loader (8sn üst sınır) + scroll-restorasyon kapalı · projeler DESC sıralı (backend Sort) + yıllar 2024-2026 · "How I Work" = somut garantiler (24h yanıt / 30 gün revizyon / 1 yıl ücretsiz düzeltme / clean architecture) sabit 3×2 grid · Experience = Web/Mobile/AI yetkinlik kartları · Toolbox kategorili (AI: LLM Integration, Prompt Eng., Vibe Coding, Claude Code, ChatGPT; Tools: +Figma/Jira/Postman) · "By the Numbers" kartı (6+/20+/3/7) · My Reads & Beyond the Code kaldırıldı · Hacettepe Teknokent haritası (CARTO z15, ayrı beyazlatılmış etiket katmanı, tam genişlik) · mobil kart düzeni (edge-to-edge görsel) + sticky yığılma responsive ofsetli (mobil 16+i·12, lg 64+i·40) + Tape'e opak zemin · contact 502'de zarif hata + SMTP 5sn timeout.
+
+### Güvenlik notları
+- Prod ADMIN_API_KEY / JWT_SECRET'lar Railway Variables'ta (lokaldekilerden farklı).
+- Resend full-access 'admin' anahtarı sohbette paylaşıldı — işi bitti, panelden SİLİNMELİ. Gönderim anahtarı Railway'de.
+- Railway'deki MAIL_USERNAME/MAIL_PASSWORD artık kullanılmıyor (Resend aktif) — silinebilir; Gmail app password YENİLENMELİ (hâlâ bekliyor).
+
+### Bekleyen opsiyoneller
+Cüzdan EAS APK (eas login gerek) · Railway kredi bitince barındırma kararı · gerçek müşteri gelince testimonial kartı.
+
+---
+
 ## 🔴 Acil — commit/üretim öncesi şart
 
 ### 1. Sırları koddan çıkar
