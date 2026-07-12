@@ -25,8 +25,11 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card
               key={project.id}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:px-20 lg:pt-16 lg:sticky"
-              style={{top: `calc(64px + ${index * 40}px)`}}
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:px-20 lg:pt-16 sticky top-[var(--stack-top)] lg:top-[var(--stack-top-lg)]"
+              style={{
+                "--stack-top": `${16 + index * 12}px`,
+                "--stack-top-lg": `${64 + index * 40}px`,
+              } as React.CSSProperties}
             >
               <div
                 className="absolute inset-0 -z-10 opacity-5"
