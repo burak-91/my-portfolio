@@ -2,7 +2,7 @@
 import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
 import Image from "next/image";
-import mapImage from "@/assets/images/map2.png";
+import mapImage from "@/assets/images/map-teknokent.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
 
@@ -81,8 +81,8 @@ export const AboutSection = () => {
           <Card className="md:col-span-5 lg:col-span-3 p-0 relative h-[300px]">
             <Image
               src={mapImage}
-              alt="Ankara map"
-              className="absolute inset-0 h-full w-full object-cover object-left-top"
+              alt="Map of Hacettepe Teknokent, Ankara"
+              className="absolute inset-0 h-full w-full object-cover object-center"
             />
             <div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full
@@ -93,7 +93,10 @@ export const AboutSection = () => {
               <Image src={smileMemoji} alt="smiling memoji" className="size-20" />
             </div>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-950/70 backdrop-blur px-4 py-1.5 rounded-full text-sm text-white/80 whitespace-nowrap">
-              📍 Ankara, Türkiye
+              📍 Hacettepe Teknokent, Ankara
+            </div>
+            <div className="absolute bottom-1.5 right-3 text-[9px] text-white/25">
+              © OpenStreetMap · © CARTO
             </div>
           </Card>
         </div>
