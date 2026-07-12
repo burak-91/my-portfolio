@@ -20,16 +20,19 @@ public class EmailService {
     private final String from;
     private final String recipient;
     private final String resendApiKey;
+    private final String resendFrom;
     private final HttpClient httpClient = HttpClient.newHttpClient();
 
     public EmailService(JavaMailSender mailSender,
                         @Value("${spring.mail.username}") String from,
                         @Value("${app.contact.recipient}") String recipient,
-                        @Value("${app.resend.api-key:}") String resendApiKey) {
+                        @Value("${app.resend.api-key:}") String resendApiKey,
+                        @Value("${app.resend.from}") String resendFrom) {
         this.mailSender = mailSender;
         this.from = from;
         this.recipient = recipient;
         this.resendApiKey = resendApiKey;
+        this.resendFrom = resendFrom;
     }
 
     public void sendEmail(EmailRequest request) {
@@ -54,9 +57,9 @@ public class EmailService {
 
     private void sendViaResend(EmailRequest request) {
         String json = """
-                {"from":"Portfolio <onboarding@resend.dev>","to":["%s"],"reply_to":"%s",\
+                {"from":"%s","to":["%s"],"reply_to":"%s",\
                 "subject":"Portfolio Contact Form: %s","text":"%s"}"""
-                .formatted(escape(recipient), escape(request.getEmail()),
+                .formatted(escape(resendFrom), escape(recipient), escape(request.getEmail()),
                         escape(request.getName()), escape(buildBody(request)));
         try {
             HttpRequest httpRequest = HttpRequest.newBuilder()
