@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useCallback } from 'react';
 import api from '@/utils/axios';
-import type { Project } from '@/sections/Projects';
+import type { Project } from '@/context/ProjectsContext';
 
 interface ProjectForm {
   company: string;

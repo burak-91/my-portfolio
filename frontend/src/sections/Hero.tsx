@@ -92,9 +92,8 @@ export const HeroSection = () => {
             Hi, I&apos;m Burak — Full-Stack Developer
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I build complete web applications from database to browser — Java &
-            Spring Boot on the backend, React & Next.js on the front.
-            Let&apos;s discuss your next project.
+            I build and ship complete digital products — web apps, mobile apps
+            and AI-powered features — end to end. Let&apos;s build yours next.
           </p>
         </div>
 
