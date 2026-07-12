@@ -75,7 +75,14 @@ Basit demoların ötesinde, Spring Boot backend'li 2 tam kapsamlı proje. Konum:
 **KAPSAMLI PROJELER TAMAM (2/2).** Portfolyoda 7 kart var. Kalan tek büyük zincir: yayına alma (aşağıda).
 Her ikisi de bitince kart olarak DB'ye eklenecek (mobil için ekran görüntüleri kolaj).
 
-**TÜM DEMOLAR TAMAM (4/4).** Sıradaki büyük adım — yayına alma zinciri (8c'den sonra):
+### YAYINA ALMA DURUMU (2026-07-12)
+✅ Sır temizliği bitti: portfolio backend env-var'lı, `application-local.properties` gitignore'lu; CORS env'den; EmailService From/Reply-To düzeltildi; ölü kod (Result.java, kullanılmayan görseller) silindi.
+✅ 7 repo lokal olarak commit'e hazır (portfolio 3 commit ileride; diğer 6'sı ilk commit'li, main branch).
+✅ 3 backend'e Dockerfile eklendi; adım adım rehber: [DEPLOYMENT.md](DEPLOYMENT.md).
+⏳ BLOKER: GitHub kimliği — `gh auth login` gerekiyor (kayıtlı token geçersiz). Sonrası: repo create+push (ben) → Neon DB'ler → Railway backend'ler → Vercel frontend'ler → EAS APK → kart linkleri.
+⚠️ Deploy sırasında: Gmail app password YENİLE, prod için yeni ADMIN_API_KEY + JWT_SECRET üret.
+
+**TÜM DEMOLAR TAMAM (4/4).** Yayına alma zinciri (detay DEPLOYMENT.md'de):
 1) `demos/*` altındaki 4 repo'yu GitHub'a push'la (Burak),
 2) Her birini Vercel'e bağla (ücretsiz tier yeter),
 3) Kartlardaki linkleri admin panelden canlı URL'lere çevir,
