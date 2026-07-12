@@ -18,7 +18,9 @@ public class ProjectService {
     public List<Project> getAllProjects() {
         try {
             log.debug("Fetching all projects");
-            List<Project> projects = projectRepository.findAll();
+            // En yeni proje en üstte görünsün
+            List<Project> projects = projectRepository.findAll(
+                    org.springframework.data.domain.Sort.by(org.springframework.data.domain.Sort.Direction.DESC, "id"));
             log.debug("Found {} projects", projects.size());
             return projects;
         } catch (Exception e) {

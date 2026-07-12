@@ -3,51 +3,18 @@ import Card from "@/components/Card";
 import SectionHeader from "@/components/SectionHeader";
 import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
-import JavaScriptIcon from "@/assets/icons/square-js.svg";
-import HTMLIcon from "@/assets/icons/html5.svg";
-import CSSIcon from "@/assets/icons/css3.svg";
-import ReactIcon from "@/assets/icons/react.svg";
-import JavaIcon from "@/assets/icons/java-icon.svg";
-import GithubIcon from "@/assets/icons/github.svg";
-import GitIcon from "@/assets/icons/git.svg";
 import mapImage from "@/assets/images/map2.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
-import ToolboxItems from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-const toolBoxItems = [
-  {
-    title: "JavaScript",
-    iconType: JavaScriptIcon,
-  },
-  {
-    title: "React",
-    iconType: ReactIcon,
-  },
-
-  {
-    title: "CSS3",
-    iconType: CSSIcon,
-  },
-  {
-    title: "HTML5",
-    iconType: HTMLIcon,
-  },
-
-  {
-    title: "Java",
-    iconType: JavaIcon,
-  },
-  {
-    title: "Github",
-    iconType: GithubIcon,
-  },
-  {
-    title: "Git",
-    iconType: GitIcon,
-  },
+const toolbox = [
+  { label: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { label: "Backend", items: ["Java", "Spring Boot", "PostgreSQL", "REST APIs"] },
+  { label: "Mobile", items: ["React Native", "Expo"] },
+  { label: "AI", items: ["OpenAI API", "Claude API", "AI-Assisted Development"] },
+  { label: "Tools", items: ["Git & GitHub", "Docker", "Maven", "Vercel & Railway"] },
 ];
 
 const hobbies = [
@@ -117,19 +84,30 @@ export const AboutSection = () => {
                 <Image src={bookImage} alt="Book cover" />
               </div>
             </Card>
-            <Card className="h-[320px]  md:col-span-3 lg:col-span-2">
+            <Card className="md:col-span-3 lg:col-span-2 pb-6">
               <CardHeader
                 title="My Toolbox"
-                description=" Explore the technologies and tools I use to craft exceptional
-                digital experiences."
-                className=""
+                description="The stack I use to ship complete products — web, mobile and AI."
               />
-              <ToolboxItems items={toolBoxItems} className="" itemsWraperClassName="animate-move-left [animation-duration:50s]" />
-              <ToolboxItems
-                items={toolBoxItems}
-                itemsWraperClassName="animate-move-right [animation-duration:35s] "
-                className="mt-6"
-              />
+              <div className="px-6 mt-4 flex flex-col gap-3">
+                {toolbox.map((category) => (
+                  <div key={category.label} className="flex flex-wrap items-baseline gap-x-2 gap-y-1.5">
+                    <span className="w-20 shrink-0 text-[11px] font-semibold uppercase tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
+                      {category.label}
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {category.items.map((item) => (
+                        <span
+                          key={item}
+                          className="text-xs text-white/80 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Card>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
