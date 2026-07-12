@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card
               key={project.id}
-              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:px-20 lg:pt-16 sticky"
+              className="px-8 pt-8 pb-0 md:pt-12 md:px-10 lg:px-20 lg:pt-16 lg:sticky"
               style={{top: `calc(64px + ${index * 40}px)`}}
             >
               <div
