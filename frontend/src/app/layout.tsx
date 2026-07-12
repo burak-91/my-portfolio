@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import {Inter, Calistoga} from 'next/font/google';
 import { twMerge } from "tailwind-merge";
+import { Maintenance } from "@/components/Maintenance";
 
 const inter = Inter({subsets: ["latin"], variable: '--font-sans'});
 const calistoga = Calistoga({subsets: ["latin"], variable: "--font-serif", weight:["400"]});
@@ -17,9 +18,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const maintenance = process.env.NEXT_PUBLIC_MAINTENANCE === "1";
   return (
     <html lang="en">
-      <body className={twMerge(inter.variable, calistoga.variable, "bg-gray-900 text-white antialiased font-sans")}>{children}</body>
+      <body className={twMerge(inter.variable, calistoga.variable, "bg-gray-900 text-white antialiased font-sans")}>
+        {maintenance ? <Maintenance /> : children}
+      </body>
     </html>
   );
 }
