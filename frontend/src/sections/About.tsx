@@ -33,11 +33,11 @@ export const AboutSection = () => {
             />
             <div className="px-6 mt-4 flex flex-col gap-3">
               {toolbox.map((category) => (
-                <div key={category.label} className="flex flex-wrap items-baseline gap-x-2 gap-y-1.5">
-                  <span className="w-20 shrink-0 text-[11px] font-semibold uppercase tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
+                <div key={category.label} className="flex items-start gap-x-2">
+                  <span className="w-20 shrink-0 pt-1 text-[11px] font-semibold uppercase tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
                     {category.label}
                   </span>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex-1 min-w-0 flex flex-wrap gap-1.5">
                     {category.items.map((item) => (
                       <span
                         key={item}
