@@ -1,47 +1,17 @@
 'use client'
-import { useEffect, useState } from 'react';
-import api from '../utils/axios';
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import SectionHeader from "@/components/SectionHeader";
 import Card from "@/components/Card";
-
-interface ProjectResult {
-  title: string;
-}
-
-export interface Project {
-  id: number;
-  company: string;
-  year: string;
-  title: string;
-  results: ProjectResult[];
-  link: string;
-  image: string;
-}
+import { useProjects } from "@/context/ProjectsContext";
 
 export const ProjectsSection = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchProjects = async () => {
-    try {
-      const { data } = await api.get<Project[]>('/projects');
-      setProjects(data);
-    } catch (err) {
-      console.error('Projeler yüklenirken hata oluştu:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-  useEffect(() => {
-    fetchProjects();
-  }, []);
+  const { projects, ready } = useProjects();
 
   // Veri gelene kadar (veya backend erişilemezse) bölümü gösterme
-  if (loading || projects.length === 0) return null;
+  if (!ready || projects.length === 0) return null;
 
   return (
     <div id="projects" className="pb-16 lg:py-24">

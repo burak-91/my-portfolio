@@ -7,10 +7,13 @@ import { ApproachSection } from "@/sections/Approach";
 import { AboutSection } from "@/sections/About";
 import { ContactSection } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
+import { ProjectsProvider } from "@/context/ProjectsContext";
+import { PageLoader } from "@/components/PageLoader";
 
 export default function Home() {
   return (
-    <div className="">
+    <ProjectsProvider>
+      <PageLoader />
       <Header />
       <HeroSection />
       <ProjectsSection />
@@ -20,6 +23,6 @@ export default function Home() {
       <AboutSection/>
       <ContactSection/>
       <Footer/>
-    </div>
+    </ProjectsProvider>
   );
 }
