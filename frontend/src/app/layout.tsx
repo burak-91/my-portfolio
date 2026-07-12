@@ -7,7 +7,7 @@ const inter = Inter({subsets: ["latin"], variable: '--font-sans'});
 const calistoga = Calistoga({subsets: ["latin"], variable: "--font-serif", weight:["400"]});
 
  export const metadata: Metadata = {
-  title: "Burak Eröksüz | Full-Stack Developer",
+  title: "Burak | Full-Stack Developer",
   description:
     "Full-stack web developer specializing in Java/Spring Boot backends and React/Next.js frontends. Available for freelance projects.",
 };
