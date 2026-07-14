@@ -6,7 +6,10 @@
 
 ## 📓 YAYIN GÜNLÜĞÜ — 2026-07-12 (lansman günü)
 
-**⏸️ MEVCUT DURUM: SİTE BAKIM MODUNDA.** Açmak için: Vercel `burak-portfolio` → Environment Variables → `NEXT_PUBLIC_MAINTENANCE` değişkenini SİL → prod'a yeniden deploy → `iamburak.dev` otomatik güncellenir (custom domain deploy'u takip eder), fakat `burak-91.vercel.app` ve `burak-eroksuz.vercel.app` alias'larını yeni deploy'a ELLE bağlamak gerekir (`vercel alias set <deploy-url> <alias>`).
+**▶️ MEVCUT DURUM: SİTE CANLI** (bakım modu kaldırılmış, 2026-07-14'te doğrulandı). Tekrar bakıma almak için: Vercel `burak-portfolio` → `NEXT_PUBLIC_MAINTENANCE=1` env ekle → prod'a yeniden deploy. Her prod deploy'dan sonra `iamburak.dev` otomatik güncellenir (custom domain deploy'u takip eder), fakat `burak-91.vercel.app` ve `burak-eroksuz.vercel.app` alias'larını yeni deploy'a ELLE bağlamak gerekir (`vercel alias set <deploy-url> <alias>`).
+
+### 2026-07-14 — Projects bölümü Vitrin + Grid'e geçti
+Sticky kart yığını kaldırıldı: ilk 2 proje büyük vitrin kartı (sticky yok), kalanlar 3 sütunlu kompakt grid (kart komple tıklanabilir link, hover'da yükselir, görsel 16:9 `object-top` kırpma), 3'ten fazlası "Show More (+N)" ile açılır. Ayarlar `Projects.tsx` başındaki `FEATURED_COUNT=2` ve `INITIAL_GRID_COUNT=3` sabitlerinde. Kart içindeki duplike grain katmanı kaldırıldı (Card zaten render ediyor). Deploy edildi; canlı bundle'da yeni tasarım ve Railway API'de 7 proje doğrulandı.
 
 ### Canlı altyapı
 - **Domain:** iamburak.dev (Hostinger, oto-yenileme açık, bitiş 2027-07-12). DNS: A @→76.76.21.21, CNAME www→cname.vercel-dns.com + Resend için TXT resend._domainkey (DKIM), TXT+MX send (SPF).
